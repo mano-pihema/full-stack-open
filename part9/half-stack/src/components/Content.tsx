@@ -1,14 +1,17 @@
 import React from 'react'
 
-interface contentProps{
-  name:string,
-  count:number
-}
-const Content = ({name,count}:contentProps) => {
+import Part from './Part'
+import {  contentProp } from '../types'
+
+const Content = ({courses}:contentProp) => {
   return (
     <div>
-      <p>{name}</p>
-      <p>{count}</p>
+      {
+       courses.map((item)=>(
+        <Part key = {item.name} data = {item}/>
+       ))
+      }
+      
     </div>
   )
 }
