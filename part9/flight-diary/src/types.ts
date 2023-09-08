@@ -1,19 +1,31 @@
 
-type Weather = 'sunny'|'cloudy'|'windy'|'rainy'
+export enum Weather {
+  sunny = 'sunny',
+  rainy = 'rainy',
+  cloudy = 'cloudy',
+  stormy = 'stormy',
+  windy = 'windy'
+} 
 
-type Visibility = 'poor'|'good'
+export enum Visibility {
 
-export interface Note {
-  id: number,
-  content: string
+  great = 'great',
+  good = 'good',
+  ok = 'ok',
+  poor = 'poor', 
+
+
 }
 
-export type NewNote = Omit<Note, 'id'>
+
+export type NewEntry = Omit<DiaryEntry, 'id'>
 
 export interface DiaryEntry {
   id: number;
   date: string;
   weather: Weather;
   visibility: Visibility;
-  comment?: string;
+  comment?:string
+
 } 
+
