@@ -8,6 +8,10 @@ router.get('/',(_req,res)=>{
   res.send(patientServices.getPatients())
 })
 
+router.get('/:id',(req,res)=>{
+  res.send(patientServices.selectPatient(req.params.id))
+})
+
 router.post('/',(req,res)=>{
   try {
   const formatedPatient  =  formatPatientInput(req.body)
