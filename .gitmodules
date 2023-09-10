@@ -1,0 +1,3 @@
+[submodule "part9/patientor-frontEnd"]
+	path = part9/patientor-frontEnd
+	url = https://github.com/mano-pihema/patientor.git
