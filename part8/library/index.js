@@ -132,6 +132,7 @@ type Books {
       id:String
       genres: [String]
     ): Books
+    updateBirthday(name:String!,birthday:Int!):Authors
   }
 `
 
@@ -173,6 +174,18 @@ const resolvers = {
       const book = { ...args, id: uuid() }
       books = books.concat(book)
       return book
+    },
+    updateBirthday: (root, args) => {
+      const author = authors.find((person) => person.name === args.name)
+      if (!author) {
+        return null
+      }
+
+      const updatedAuthor = { ...author, born: args.birthday }
+      authors = authors.map((item) =>
+        item.name === args.name ? updatedAuthor : item
+      )
+      return updatedAuthor
     },
   },
 }
