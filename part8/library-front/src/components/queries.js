@@ -38,3 +38,12 @@ export const CREATE_BOOK = gql`
     }
   }
 `
+
+export const EDIT_BIRTH = gql`
+  mutation changeBirth($name: String!, $birthday: Int!) {
+    updateBirthday(name: $name, birthday: $birthday) {
+      name
+      born
+    }
+  }
+`

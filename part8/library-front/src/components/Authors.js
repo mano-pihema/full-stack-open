@@ -1,5 +1,9 @@
+import EditAuthor from './EditAuthor'
+
 const Authors = (props) => {
-  if (!props.show) {
+  const { show, persons } = props
+
+  if (!show) {
     return null
   }
 
@@ -13,7 +17,7 @@ const Authors = (props) => {
             <th>born</th>
             <th>books</th>
           </tr>
-          {props.persons.map((a) => (
+          {persons.map((a) => (
             <tr key={a.name}>
               <td>{a.name}</td>
               <td>{a.born}</td>
@@ -22,6 +26,7 @@ const Authors = (props) => {
           ))}
         </tbody>
       </table>
+      <EditAuthor authors={persons} />
     </div>
   )
 }
